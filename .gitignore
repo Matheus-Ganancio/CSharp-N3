@@ -1,0 +1,97 @@
+# ==========================================
+# Compilação e Artefatos Nativos
+# ==========================================
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+*.a
+*.lib
+*.dylib
+*.out
+*.app
+
+# ==========================================
+# Pastas de Build
+# ==========================================
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Bb]uild/
+[Bb]in/
+[Oo]bj/
+out/
+
+# ==========================================
+# Sistemas de Build (CMake e Ninja)
+# ==========================================
+CMakeCache.txt
+CMakeFiles/
+CMakeScripts/
+Testing/
+Makefile
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+_deps/
+.ninja_deps
+.ninja_log
+build.ninja
+
+# ==========================================
+# Gerenciadores de Pacotes (vcpkg / Conan)
+# ==========================================
+vcpkg_installed/
+conanbuildinfo.*
+conaninfo.txt
+graph_info.json
+
+# ==========================================
+# Visual Studio
+# ==========================================
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# ==========================================
+# CLion / Rider / JetBrains
+# ==========================================
+.idea/
+cmake-build-*/
+
+# ==========================================
+# VS Code
+# ==========================================
+.vscode/
+
+# ==========================================
+# Logs
+# ==========================================
+*.log
+
+# ==========================================
+# Arquivos do Sistema Operacional
+# ==========================================
+.DS_Store
+Thumbs.db
+
+# ==========================================
+# Arquivos Gerados, Temporários e Cache
+# ==========================================
+*.cache
+*.tmp
+*.temp
+
+# ==========================================
+# Cobertura de Testes (Coverage)
+# ==========================================
+coverage/
+*.coverage
+*.gcda
+*.gcno
