@@ -1,4 +1,5 @@
 ﻿using ScreenSound.Modelos;
+using ScreenSound.Nyteon.Movies;
 
 Banda ira = new Banda("Ira!");
 ira.AdicionarNota(10);
@@ -33,6 +34,7 @@ void ExibirOpcoesDoMenu()
     Console.WriteLine("Digite 3 para mostrar todas as bandas");
     Console.WriteLine("Digite 4 para avaliar uma banda");
     Console.WriteLine("Digite 5 para exibir os detalhes de uma banda");
+    Console.WriteLine("Digite 6 para exibir os filmes favoritos");
     Console.WriteLine("Digite -1 para sair");
 
     Console.Write("\nDigite a sua opção: ");
@@ -55,6 +57,9 @@ void ExibirOpcoesDoMenu()
             break;
         case 5:
             ExibirDetalhes();
+            break;
+        case 6:
+            ExibirFilmesFavoritos();
             break;
         case -1:
             Console.WriteLine("Tchau tchau :)");
@@ -186,6 +191,38 @@ void ExibirDetalhes()
     {
         Console.WriteLine($"\nA banda {nomeDaBanda} não foi encontrada!");
         Console.WriteLine("Digite uma tecla para voltar ao menu principal");
+        Console.ReadKey();
+        Console.Clear();
+        ExibirOpcoesDoMenu();
+    }
+    // secao de filmes
+    void ExibirFilmesFavoritos()
+    {
+        Console.Clear();
+        List<Movie> meusFilmesFavoritos = new List<Movie>();
+
+        Movie filme1 = new Movie { Titulo = "Jackass 3", Duracao = 94, Elenco = "Johnny Knoxville e Steve-O" };
+        Movie filme2 = new Movie { Titulo = "Homem-Aranha 2", Duracao = 127, Elenco = "Tobey Maguire" };
+        Movie filme3 = new Movie { Titulo = "Kung-Fusao", Duracao 99, Elenco = "Stephen Chow" };
+        Movie filme4 = new Movie { Titulo = "Bater ou Correr", Duracao 110, Elenco = "Jackie Chan" };
+        Movie filme5 = new Movie { Titulo = "Uma noite no Museu", Duracao 108, Elenco = "Ben Stiller" };
+
+        meusFilmesFavoritos.Add(filme1);
+        meusFilmesFavoritos.Add(filme2);
+        meusFilmesFavoritos.Add(filme3);
+        meusFilmesFavoritos.Add(filme4);
+        meusFilmesFavoritos.Add(filme5);
+
+        Console.WriteLine("===== MEUS FILMES FAVORITOS =====\n");
+        foreach (Movie filmes in meusFilmesFavoritos)
+        {
+            Console.WriteLine($"Titulo: {filme.Titulo}");
+            Console.WriteLine($"Duracao: {filme.Duracao} Minutos");
+            Console.WriteLine($"Elenco: {filme.Elenco}");
+            Console.WriteLine("-----------------------------------");
+        }
+
+        Console.WriteLine("\n Digite uma tecla para voltar ao menu principal");
         Console.ReadKey();
         Console.Clear();
         ExibirOpcoesDoMenu();
