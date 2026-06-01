@@ -17,7 +17,8 @@ public class Movie
         if (!Elenco.Contains(artista))
         {
             Elenco.Add(artista);
-            artista.AdicionarFilme(this); // Mantém a mão dupla
+            // Mantém a mão dupla
+            artista.AdicionarFilme(this);
         }
     }
 }
