@@ -178,14 +178,11 @@ void ExibirDetalhes()
     {
         Banda banda = bandasRegistradas[nomeDaBanda];
         Console.WriteLine($"\nA média da banda {nomeDaBanda} é {banda.Media}.");
-        /**
-        * ESPAÇO RESERVADO PARA COMPLETAR A FUNÇÃO
-        */
+
         Console.WriteLine("Digite uma tecla para votar ao menu principal");
         Console.ReadKey();
         Console.Clear();
         ExibirOpcoesDoMenu();
-
     }
     else
     {
@@ -195,38 +192,76 @@ void ExibirDetalhes()
         Console.Clear();
         ExibirOpcoesDoMenu();
     }
-    // secao de filmes
-    void ExibirFilmesFavoritos()
+}
+
+void ExibirFilmesFavoritos()
+{
+    Console.Clear();
+    List<Movie> meusFilmesFavoritos = new List<Movie>();
+
+    Movie filme1 = new Movie("Jackass 3", 94f);
+    Movie filme2 = new Movie("Homem-Aranha 2", 127f);
+    Movie filme3 = new Movie("Kung-Fusao", 99f);
+    Movie filme4 = new Movie("Bater ou Correr", 110f);
+    Movie filme5 = new Movie("Uma noite no Museu", 108f);
+
+    meusFilmesFavoritos.Add(filme1);
+    meusFilmesFavoritos.Add(filme2);
+    meusFilmesFavoritos.Add(filme3);
+    meusFilmesFavoritos.Add(filme4);
+    meusFilmesFavoritos.Add(filme5);
+
+    Console.WriteLine("===== MEUS FILMES FAVORITOS =====\n");
+    foreach (Movie filme in meusFilmesFavoritos)
     {
-        Console.Clear();
-        List<Movie> meusFilmesFavoritos = new List<Movie>();
-
-        Movie filme1 = new Movie { Titulo = "Jackass 3", Duracao = 94, Elenco = "Johnny Knoxville e Steve-O" };
-        Movie filme2 = new Movie { Titulo = "Homem-Aranha 2", Duracao = 127, Elenco = "Tobey Maguire" };
-        Movie filme3 = new Movie { Titulo = "Kung-Fusao", Duracao 99, Elenco = "Stephen Chow" };
-        Movie filme4 = new Movie { Titulo = "Bater ou Correr", Duracao 110, Elenco = "Jackie Chan" };
-        Movie filme5 = new Movie { Titulo = "Uma noite no Museu", Duracao 108, Elenco = "Ben Stiller" };
-
-        meusFilmesFavoritos.Add(filme1);
-        meusFilmesFavoritos.Add(filme2);
-        meusFilmesFavoritos.Add(filme3);
-        meusFilmesFavoritos.Add(filme4);
-        meusFilmesFavoritos.Add(filme5);
-
-        Console.WriteLine("===== MEUS FILMES FAVORITOS =====\n");
-        foreach (Movie filmes in meusFilmesFavoritos)
-        {
-            Console.WriteLine($"Titulo: {filme.Titulo}");
-            Console.WriteLine($"Duracao: {filme.Duracao} Minutos");
-            Console.WriteLine($"Elenco: {filme.Elenco}");
-            Console.WriteLine("-----------------------------------");
-        }
-
-        Console.WriteLine("\n Digite uma tecla para voltar ao menu principal");
-        Console.ReadKey();
-        Console.Clear();
-        ExibirOpcoesDoMenu();
+        Console.WriteLine($"Titulo: {filme.Title}");
+        Console.WriteLine($"Duracao: {filme.Duration} Minutos");
+        Console.WriteLine($"Elenco: {string.Join(", ", filme.Elenco.Select(a => a.Nome))}");
+        Console.WriteLine("-----------------------------------");
     }
+
+    Console.WriteLine("\n===== Artistas =====");
+
+    // lista de artistas
+    List<Artista> artistas = new List<Artista>();
+
+    Artista artista1 = new Artista("Johnny Knoxville", 52);
+    artista1.AdicionarFilme(filme1);
+    artistas.Add(artista1);
+
+    Artista artista2 = new Artista("Tobey Maguire", 48);
+    artista2.AdicionarFilme(filme2);
+    artistas.Add(artista2);
+
+    Artista artista3 = new Artista("Stephen Chow", 61);
+    artista3.AdicionarFilme(filme3);
+    artistas.Add(artista3);
+
+    Artista artista4 = new Artista("Jackie Chan", 70);
+    artista4.AdicionarFilme(filme4);
+    artistas.Add(artista4);
+
+    Artista artista5 = new Artista("Ben Stiller", 58);
+    artista5.AdicionarFilme(filme5);
+    artistas.Add(artista5);
+
+    // dados de cada artista e seus filmes
+    foreach (Artista ator in artistas)
+    {
+        Console.WriteLine($"Artista: {ator.Nome} (Idade: {ator.Idade})");
+        Console.Write("Filmes que atuou (registrados): ");
+        foreach (Movie f in ator.FilmesAtuados)
+        {
+            Console.WriteLine($"{f.Title}");
+        }
+        Console.WriteLine("");
+    }
+    Console.WriteLine("=====================================\n");
+
+    Console.WriteLine("\nDigite uma tecla para voltar ao menu principal");
+    Console.ReadKey();
+    Console.Clear();
+    ExibirOpcoesDoMenu();
 }
 
 ExibirOpcoesDoMenu();

@@ -2,14 +2,22 @@
 
 public class Movie
 {
-    public Movie(string title, string actor, float duration)
+    public Movie(string title, float duration)
     {
         Title = title;
-        Actor = actor;
         Duration = duration;
     }
 
     public string Title { get; }
-    public string Actor { get; }
+    public List<Artista> Elenco { get; } = new List<Artista>();
     public float Duration { get; }
+
+    public void AdicionarArtista(Artista artista)
+    {
+        if (!Elenco.Contains(artista))
+        {
+            Elenco.Add(artista);
+            artista.AdicionarFilme(this); // Mantém a mão dupla
+        }
+    }
 }
