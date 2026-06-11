@@ -87,7 +87,7 @@ void RegistrarAlbum()
          * ESPAÇO RESERVADO PARA COMPLETAR A FUNÇÃO
          */
         Console.WriteLine($"O álbum {tituloAlbum} de {nomeDaBanda} foi registrado com sucesso!");
-        Thread.Sleep(4000);
+        Thread.Sleep(2500);
         Console.Clear();
     }
     else
