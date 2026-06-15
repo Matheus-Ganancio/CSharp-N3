@@ -2,11 +2,17 @@
 
 internal class Album
 {
+    // 1. Campo estático que pertence à classe Album (não zera quando um novo álbum é criado)
+    public static int ContadorDeObjetos = 0;
+
     private List<Musica> musicas = new List<Musica>();
 
     public Album(string nome)
     {
         Nome = nome;
+
+        // 2. Incrementando o contador toda vez que o construtor é chamado
+        ContadorDeObjetos++;
     }
 
     public string Nome { get; }
